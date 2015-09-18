@@ -26,6 +26,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'simplecov', :require => false
   gem 'database_cleaner'
+  gem 'shoulda-matchers'
 end
 group :production do
   gem 'rails_12factor'

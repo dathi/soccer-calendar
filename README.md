@@ -21,7 +21,7 @@ Heroku
 - Use Grape as a web API to expose data
 
 There are 4 tables:
+- Matches: id, tournament_id, happen_datetime, score, home, guest
+- Teams: id, name, match_id, points, played_number
 - Tournaments: id, name, tournament_type_id
-- Matches: id, tournament_id, happen_datetime, score
-- Teams: id, name, match_id, points
 - TournamentTypes: id, name
