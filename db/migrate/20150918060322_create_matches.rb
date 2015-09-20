@@ -3,7 +3,7 @@ class CreateMatches < ActiveRecord::Migration
     create_table :matches do |t|
       t.string :home
       t.string :guest
-      t.datetime :happen_time
+      t.string :happen_time
       t.string :score
 
       t.timestamps null: false
