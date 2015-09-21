@@ -14,22 +14,18 @@
 ActiveRecord::Schema.define(version: 20150918082120) do
 
   create_table "matches", force: :cascade do |t|
-    t.string   "home"
-    t.string   "guest"
-    t.datetime "happen_time"
-    t.string   "score"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string "home"
+    t.string "guest"
+    t.string "happen_time"
+    t.string "score"
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "played_number"
-    t.integer  "rank"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "points"
-    t.integer  "match_id"
+    t.string  "name"
+    t.integer "played_number"
+    t.integer "rank"
+    t.integer "points"
+    t.integer "match_id"
   end
 
   add_index "teams", ["match_id"], name: "index_teams_on_match_id"

@@ -5,8 +5,6 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :played_number
       t.integer :rank
       t.integer :points
-
-      t.timestamps null: false
     end
   end
 end
