@@ -11,5 +11,5 @@ deployment:
   staging:
     branch: master
     commands:
-      - git push git@heroku.com:soccer-calendar.git $CIRCLE_SHA1:master
-      - heroku run rake db:migrate --app soccer-calendar
+      - git push git@heroku.com:soccer-cal.git $CIRCLE_SHA1:master
+      - heroku run rake db:migrate --app soccer-cal
