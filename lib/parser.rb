@@ -3,26 +3,24 @@ require 'open-uri'
 
 module Parser
 
-  SEASON = ['England', 'Italy', 'Spain']
-  CUP = ['Champions League']
-
   def parse_url(url)
   	html = open(url) { |f| f.read }
-  	doc = Nokogiri::XML(html)
+  	Nokogiri::XML(html)
 #  	array = []
 #  	rows = doc.xpath("//div[@class='content']/*")
 #  	rows.each_with_index do |row, index|
 #  	  array << index if row['class'] == 'row row-tall mt4'
 #  	end
+  end
 
-    matches = parse_match(doc)
+  def parse_tournament(doc)
+    doc.css("div.row-tall div.left").text.strip
   end
 
   def parse_match(doc)
     Match.delete_all
-    tournament = doc.css("div.row-tall div.left").text.strip
-    t = Tournament.find_by_name(tournament)
-    puts t.as_json
+
+    tournament = Tournament.find_by_name(parse_tournament(doc))
     i = 0
     matches = []
 
@@ -34,7 +32,7 @@ module Parser
                               :home => home_guest[0],
                               :guest => home_guest[1],
                               :score => match.css('div.sco > a.scorelink').text.strip,
-                              tournament: t)
+                              :tournament => tournament)
     end
     puts matches.to_json
     matches.to_json
