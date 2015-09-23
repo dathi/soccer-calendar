@@ -12,4 +12,11 @@ RSpec.describe Tournament, :type => :model do
   	it { expect(inst).to belong_to(:tournament_type) }
   	it { expect(inst).to have_many(:matches) }
   end
+
+  describe "test api" do
+  	before { get "/v1/tournaments", format: :json }
+  	it "response code" do
+  	  expect(response).to have_http_status(200)
+  	end
+  end
 end

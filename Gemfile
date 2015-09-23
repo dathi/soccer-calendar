@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'grape'
+gem 'activerecord-import'
 
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
