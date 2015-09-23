@@ -24,5 +24,6 @@ RSpec.describe Match, :type => :model do
 
   describe "ActiveRecord associations" do
   	it { expect(inst).to have_many(:teams) }
+    it { expect(inst).to belong_to(:tournament) }
   end
 end

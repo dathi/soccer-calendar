@@ -10,5 +10,6 @@ RSpec.describe Tournament, :type => :model do
 
   describe "ActiveRecord Association" do
   	it { expect(inst).to belong_to(:tournament_type) }
+  	it { expect(inst).to have_many(:matches) }
   end
 end

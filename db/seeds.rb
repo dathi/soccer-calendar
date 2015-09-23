@@ -6,5 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Tournament.create(:name => "Season")
-Tournament.create(:name => "Cup")
+season = TournamentType.create(:name => "Season")
+cup = TournamentType.create(:name => "Cup")
+
+Tournament.create(:name => 'England - Premier League', tournament_type: season)
+Tournament.create(:name => 'Italy - SerieA', tournament_type: season)
+Tournament.create(:name => 'Spain - Liga BBVA', tournament_type: season)
+Tournament.create(:name => 'Champions League', tournament_type: cup)
+
