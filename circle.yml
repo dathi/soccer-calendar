@@ -4,7 +4,6 @@ machine:
 
 database:
   override:
-    #- mv config/database.yml.sample config/database.yml
     - bundle exec rake db:create db:schema:load db:migrate db:seed
 
 deployment:
@@ -12,4 +11,4 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:soccer-cal.git $CIRCLE_SHA1:refs/heads/master
-      - heroku run rake db:migrate --app soccer-cal
+      - heroku run rake db:migrate db:seed --app soccer-cal
