@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :tournament do
-  	name "Premier League"
+  	name "England - Premier League"
   end
 end
