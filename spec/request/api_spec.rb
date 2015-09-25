@@ -1,5 +1,4 @@
 require "rails_helper"
-require "byebug"
 
 RSpec.describe "Web API" do
   let(:tournament) { build(:tournament) }

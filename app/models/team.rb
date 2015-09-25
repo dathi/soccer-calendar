@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Team < ActiveRecord::Base
   validates :name, :played_number, :rank, :points, :presence => true
 
