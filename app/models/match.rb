@@ -1,13 +1,11 @@
 class Match < ActiveRecord::Base
-  has_many :teams
   belongs_to :tournament
   validates :happen_time, :home, :guest, :presence => true
 
   def self.parse(doc)
   	Match.delete_all # clear table
 
-  	tournament = doc.css("div.row-tall div.left").text.strip
-  	t = Tournament.find_by_name(tournament)
+  	t = Tournament.parse(doc)
   	matches = []
     i = 1
 

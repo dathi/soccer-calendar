@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924132632) do
+ActiveRecord::Schema.define(version: 20150925091306) do
 
   create_table "matches", force: :cascade do |t|
     t.string  "home"
@@ -28,10 +28,13 @@ ActiveRecord::Schema.define(version: 20150924132632) do
     t.integer "played_number"
     t.integer "rank"
     t.integer "points"
-    t.integer "match_id"
+    t.integer "wins"
+    t.integer "draws"
+    t.integer "losts"
+    t.integer "goals_for"
+    t.integer "goals_against"
+    t.integer "goals_difference"
   end
-
-  add_index "teams", ["match_id"], name: "index_teams_on_match_id"
 
   create_table "tournament_types", force: :cascade do |t|
     t.string "name"

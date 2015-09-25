@@ -12,6 +12,6 @@ RSpec.describe Team, :type => :model do
   end
 
   describe "ActiveRecord associations" do
-  	it { expect(inst).to belong_to(:match) }
+  	
   end
 end

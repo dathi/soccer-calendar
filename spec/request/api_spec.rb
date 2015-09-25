@@ -1,4 +1,5 @@
 require "rails_helper"
+require "byebug"
 
 RSpec.describe "Web API" do
   let(:tournament) { build(:tournament) }
@@ -17,7 +18,9 @@ RSpec.describe "Web API" do
 
   	it "return a valid json response" do
       resp = JSON.parse(response.body)
-  	  expect(resp[0]['name']).to eq tournament.name
+      nha = false
+      resp.each { |m| nha = true if m['name'] == tournament.name }
+  	  expect(nha).to eq true
   	end
 
     it "return a valid json response with valid keys" do
@@ -48,6 +51,25 @@ RSpec.describe "Web API" do
       resp = JSON.parse(response.body)
       resp.each do |m|
         expect(m.keys).to eq(["id", "home", "guest", "happen_time", "score", "tournament_id"])
+      end
+    end
+  end
+
+  context "GET /api/v1/teams" do
+    before { get "/api/v1/teams" }
+
+    it "return a response with status 200" do
+      expect(response.status).to eq 200
+    end
+
+    it "return a valid response as json" do
+      expect(response.header["Content-Type"]).to eq "application/json"
+    end
+
+    it "return a valid json response with valid keys" do
+      resp = JSON.parse(response.body)
+      resp.each do |t|
+        expect(t.keys).to eq ["id", "name", "played_number", "rank", "points", "wins", "draws", "losts", "goals_for", "goals_against", "goals_difference"]
       end
     end
   end
