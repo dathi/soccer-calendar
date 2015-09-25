@@ -49,7 +49,7 @@ RSpec.describe "Web API" do
     it "return a valid json response with valid keys" do
       resp = JSON.parse(response.body)
       resp.each do |m|
-        expect(m.keys).to eq(["id", "home", "guest", "happen_time", "score", "tournament_id"])
+        expect(m.keys).to eq(["id", "home", "guest", "happen_time", "score", "tournament_id", "detail_url"])
       end
     end
   end

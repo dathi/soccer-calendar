@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925104817) do
+ActiveRecord::Schema.define(version: 20150925133510) do
 
   create_table "matches", force: :cascade do |t|
     t.string  "home"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150925104817) do
     t.string  "happen_time"
     t.string  "score"
     t.integer "tournament_id"
+    t.string  "detail_url"
   end
 
   add_index "matches", ["tournament_id"], name: "index_matches_on_tournament_id"
